@@ -60,7 +60,8 @@ public:
    Neuron(NeuronType type, int neuronNum): m_neuronType(type),
                                            m_neuronNumber(neuronNum),
                                            m_numberOfOutputConnections(0),
-                                           m_numberOfInputConnections(0){};
+                                           m_numberOfInputConnections(0)
+                                           {if(type == e_Input) m_numberOfInputConnections++;};
 
    void SetNeuronActivationFunction(ActivationFunctionType function, float variable);
    void AddOutputWeight(float weight);
@@ -69,9 +70,12 @@ public:
    void AddInputConnection();
    void CalculateNeuronResponse();
    void PropagateNeuronResponse();
+   void ClearInputValues() {m_inputValues.clear();}
+   void IncreaseNumberOfInputConnections(int val) {m_numberOfInputConnections += val;}
 
-   int GetNeuronNumber() {return m_neuronNumber;}
+   int   GetNeuronNumber() {return m_neuronNumber;}
    float GetConnectionWeight() {return m_outputWeights[0];}
+   float GetNeuronResponse() {return m_unweightedOutputVal;}
 };
 
 class NeuralNetwork
@@ -82,6 +86,7 @@ private:
    int m_numOutputNeurons;
    int m_numHiddenLayers;
    
+   std::vector<float> m_networkResponse;
    //Neuron* Network[MAX_NEURONS_PER_LAYER][MAX_NUMBER_OF_HIDDEN_LAYERS + 2];
 
    std::vector<std::vector<Neuron*>> Network;
@@ -95,9 +100,10 @@ public:
    void CreateNeurons();  // Should I do something to add a bias?
    void ConnectNeurons();
    void RandomizeConnectionWeights();
+   std::vector<float> CalculateNetworkResponse();
 
    void SetInputValues(std::vector<float> values);
-
+   
    void PrintTest();
 };
 

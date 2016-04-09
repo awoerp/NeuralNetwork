@@ -6,7 +6,7 @@
 void Neuron::SetNeuronActivationFunction(ActivationFunctionType function, float variable) {m_activationFunction = function;
                                                                                            m_activationFunctionVariable = variable;}
 void Neuron::AddOutputWeight(float weight) {m_outputWeights.push_back(weight);}
-void Neuron::SetInputValue(float val, int connectionNumber) {m_inputValues[connectionNumber] = val;}
+void Neuron::SetInputValue(float val, int connectionNumber) {m_inputValues.push_back(val);}
 
 void Neuron::AddOutputConnection(Neuron* outputNeuron)
 {
@@ -23,10 +23,12 @@ void Neuron::AddInputConnection()
 void Neuron::CalculateNeuronResponse()
 {
    float totalInputValue = 0;
-   for(int i = 0; i < m_numberOfOutputConnections; i++)
+   for(int i = 0; i < m_numberOfInputConnections; i++)
    {
       totalInputValue += m_inputValues[i];
    }
+
+
    m_unweightedOutputVal = ActivationFunction(totalInputValue, m_activationFunctionVariable, m_activationFunction);
 }
 
@@ -71,6 +73,7 @@ void NeuralNetwork::CreateNeurons()
    for(int i = 0; i < m_numInputNeurons; i++)
    {
       Neuron* newNeuron = new Neuron(NeuronType::e_Input, i);
+      newNeuron->SetNeuronActivationFunction(e_ArtTan, 1);
       Network[0].push_back(newNeuron);
    }
 
@@ -83,6 +86,7 @@ void NeuralNetwork::CreateNeurons()
       for(int j = 0; j < m_numHiddenNeurons[i-1]; j++)
       {
          Neuron* newNeuron = new Neuron(NeuronType::e_Hidden, j);
+         newNeuron->SetNeuronActivationFunction(e_ArtTan, 1);
          Network[i].push_back(newNeuron);
       }
    }
@@ -92,6 +96,7 @@ void NeuralNetwork::CreateNeurons()
    for(int i = 0; i < m_numOutputNeurons; i++)
    {
       Neuron* newNeuron = new Neuron(NeuronType::e_Output, i);
+      newNeuron->SetNeuronActivationFunction(e_ArtTan, 1);
       Network[m_numHiddenLayers + 1].push_back(newNeuron);
    }
 
@@ -107,6 +112,7 @@ void NeuralNetwork::ConnectNeurons()
       for(int hiddenNeuron = 0; hiddenNeuron < Network[1].size(); hiddenNeuron++)
       {
          Network[0][inputNeuron]->AddOutputConnection(Network[1][hiddenNeuron]);
+         Network[1][hiddenNeuron]->IncreaseNumberOfInputConnections(1);
       }
    }
 
@@ -119,6 +125,7 @@ void NeuralNetwork::ConnectNeurons()
          {
             Neuron* outputConnectionNeuron = Network[layerNumber + 1][outputConnection];
             Network[layerNumber][hiddenNeuron]->AddOutputConnection(outputConnectionNeuron);
+            outputConnectionNeuron->IncreaseNumberOfInputConnections(1);
          }
       }
    }
@@ -132,7 +139,7 @@ void NeuralNetwork::PrintTest()
    {
       for(int j = 0; j < Network[i].size(); j++)
       {
-         std::cout << Network[i][j]->GetConnectionWeight() << std::endl;
+         std::cout << Network[i][j]->GetNeuronResponse() << std::endl;
       }
    }
 
@@ -144,13 +151,15 @@ void NeuralNetwork::RandomizeConnectionWeights()
    {
       for(int j = 0; j < Network[i].size(); j++)
       {
-         float weight = rand() / float((RAND_MAX));
+         for(int k = 0; k < Network[i + 1].size(); k++)
+         {
+            float weight = rand() / float((RAND_MAX));
 
-         if(rand() / float(RAND_MAX) > 0.5)
-            weight = -1.0 * weight;
-         Network[i][j]->AddOutputWeight(weight);
-         //std::cout << weight << std::endl;
-
+            if(rand() / float(RAND_MAX) > 0.5)
+               weight = -1.0 * weight;
+            Network[i][j]->AddOutputWeight(weight);
+            //std::cout << weight << std::endl;
+         }
       }
    }
 }
@@ -163,9 +172,36 @@ void NeuralNetwork::SetInputValues(std::vector<float> values)
    {
       for(int i = 0; i < values.size(); i++)
       {
+         Network[0][i]->ClearInputValues();
          Network[0][i]->SetInputValue(values[i], i);
       }
    }
+}
+
+
+std::vector<float> NeuralNetwork::CalculateNetworkResponse()
+{
+   for(int i = 0; i < Network.size() - 1; i++)
+   {
+      for(int j = 0; j < Network[i].size(); j++)
+      {
+         Network[i][j]->CalculateNeuronResponse();
+         Network[i][j]->PropagateNeuronResponse();
+      }
+   }
+
+   std::vector<float> outputValues;
+   float outputValue;
+
+   int indexOfOutputNeurons = Network.size() - 1;
+
+   for(int i = 0; i < Network[indexOfOutputNeurons].size(); i++)
+   {
+      Network[indexOfOutputNeurons][i]->CalculateNeuronResponse();
+      outputValue = Network[indexOfOutputNeurons][i]->GetNeuronResponse();
+      outputValues.push_back(outputValue);
+   }
+   return outputValues;
 }
 
 
