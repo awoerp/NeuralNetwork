@@ -10,7 +10,7 @@ const int BOARD_DIMENSION = 7;  // 7x7
 enum E_PieceType
 {
    BLACK = -1,
-   NONE  = 0,
+   BLANK  = 0,
    RED   = 1
 };
 
@@ -18,16 +18,10 @@ enum E_PlayerType
 {
    CHAOS = -1,
    NONE  = 0,
-   ORDER = 1,
-   DRAW
+   ORDER = 1
+   
 };
 
-enum E_BoardDirection
-{
-   ROW,
-   COLUMN,
-   DIAGONAL
-};
 
 class OrderAndChaos
 {
@@ -50,21 +44,22 @@ class GameBoard
 {
 private:
    E_PieceType board[BOARD_DIMENSION][BOARD_DIMENSION];
-   int boardDimension;
 
-   E_PlayerType CheckRowsAndColumns();
-   E_PlayerType CheckDiagonals();
-   E_PlayerType CheckRows();
+   bool CheckForOrderWin(const int row,const int column);
+   bool CheckForChaosWin();
+   void FindStartingPoint(int& row, int& column, bool positiveSlope);
+
 
 
 
 public:
    GameBoard();
+   GameBoard(int inputBoard[]);
 
-   void AddPiece(int row, int column, E_PieceType piece) {board[row][column] = piece;}
 
-   E_PlayerType GameCompleted();
-
+   // Returns true if the game is complete
+   E_PlayerType AddPiece(int row, int column, E_PieceType piece);
+   void ShowBoard();
 
 };
 

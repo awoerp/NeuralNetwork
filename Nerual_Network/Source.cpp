@@ -1,8 +1,12 @@
 #include "Neural_Network.h"
+#include "orderAndChaos.h"
 
 void main()
 {
+   
    int cat;
+
+   /*
    srand(time(NULL));
    NeuralNetwork net;
    std::vector<int> innerTopology;
@@ -26,6 +30,25 @@ void main()
    }
    //net.PrintTest();
 
+   */
+
+   GameBoard board = GameBoard();
+   board.ShowBoard();
+   std::cout << board.AddPiece(1,1,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   std::cout << board.AddPiece(2,2,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   std::cout << board.AddPiece(3,3,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   std::cout << board.AddPiece(4,4,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   std::cout << board.AddPiece(5,5,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   std::cout << board.AddPiece(6,6,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   std::cout << board.AddPiece(0,0,E_PieceType::BLACK) << std::endl;
+   board.ShowBoard();
+   
 
    std::cin >> cat;
 
