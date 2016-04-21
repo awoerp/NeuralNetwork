@@ -6,14 +6,6 @@
 #include <vector>
 #include <time.h>
 
-#define MAX_NUMBER_OF_HIDDEN_LAYERS 5
-#define MAX_NEURONS_PER_LAYER 8
-
-#define MAX_WEIGHT_RANGE 1.0f
-#define MIN_WEIGHT_RANGE -1.0f
-
-#define DELTA_WEIGHT_RANGE MAX_WEIGHT_RANGE - MIN_WEIGHT_RANGE
-
 enum ActivationFunctionType
 {
    e_TanH,
@@ -87,7 +79,6 @@ private:
    int m_numHiddenLayers;
    
    std::vector<float> m_networkResponse;
-   //Neuron* Network[MAX_NEURONS_PER_LAYER][MAX_NUMBER_OF_HIDDEN_LAYERS + 2];
 
    std::vector<std::vector<Neuron*>> Network;
 
@@ -103,7 +94,7 @@ public:
    std::vector<float> CalculateNetworkResponse();
 
    void SetInputValues(std::vector<float> values);
-   
+   void ClearInputValues();
    void PrintTest();
 };
 

@@ -1,3 +1,4 @@
+
 #include "Neural_Network.h"
 
 
@@ -228,4 +229,13 @@ float ActivationFunction(float inputVal, float variable, ActivationFunctionType 
       return inputVal;
 
    }
+}
+
+void NeuralNetwork::ClearInputValues()
+{
+   for(int i = 0; i < m_numInputNeurons; i++)
+   {
+      Network[0][i]->ClearInputValues();
+   }
+
 }
