@@ -1,53 +1,45 @@
+#include "Player.h"
 #include "Neural_Network.h"
-#include "orderAndChaos.h"
+#include "GameBoard.h"
+
 
 void main()
 {
    
    int cat;
 
-   /*
    srand(time(NULL));
-   NeuralNetwork net;
-   std::vector<int> innerTopology;
-   innerTopology.push_back(5);
-   innerTopology.push_back(4);
-   innerTopology.push_back(2);
-   net.DefineNetworkTopology(2, innerTopology, 6);
-   net.CreateNeurons();
-   net.ConnectNeurons();
-   net.RandomizeConnectionWeights();
-   std::vector<float> inputValues;
-   inputValues.push_back(2.0);
-   inputValues.push_back(1.0);
-   std::vector<float> nnResponse;
 
-   net.SetInputValues(inputValues);
-   nnResponse = net.CalculateNetworkResponse();
-   for(int i = 0; i < nnResponse.size(); i++)
+   Player Player1 = Player(E_PlayerType::CHAOS);
+   Player Player2 = Player(E_PlayerType::ORDER);
+
+   GameBoard board = GameBoard();
+
+   E_PlayerType winningPlayer = E_PlayerType::NONE;
+   E_PlayerType currentPlayer = E_PlayerType::CHAOS;
+
+   std::cout << "GAME START!!!!" << std::endl;
+   board.ShowBoard();
+
+   while(winningPlayer == E_PlayerType::NONE)
    {
-      std::cout << nnResponse[i] << std::endl;
+      if(currentPlayer == E_PlayerType::CHAOS)
+      {
+         
+         winningPlayer = Player1.MakeMove(&board);
+      }
+      else
+      {
+         winningPlayer = Player2.MakeMove(&board);
+      }
+      board.ShowBoard();
+      _sleep(1000);
+      // Toggle which player is up next
+      currentPlayer = (E_PlayerType)(((int)currentPlayer) * -1);
    }
    //net.PrintTest();
 
-   */
 
-   GameBoard board = GameBoard();
-   board.ShowBoard();
-   std::cout << board.AddPiece(1,1,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
-   std::cout << board.AddPiece(2,2,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
-   std::cout << board.AddPiece(3,3,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
-   std::cout << board.AddPiece(4,4,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
-   std::cout << board.AddPiece(5,5,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
-   std::cout << board.AddPiece(6,6,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
-   std::cout << board.AddPiece(0,0,E_PieceType::BLACK) << std::endl;
-   board.ShowBoard();
    
 
    std::cin >> cat;
