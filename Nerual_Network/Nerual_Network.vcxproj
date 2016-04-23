@@ -62,15 +62,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameBoard.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Neural_Network.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameBoard.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Neural_Network.h" />
-    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

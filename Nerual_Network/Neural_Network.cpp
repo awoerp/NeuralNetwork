@@ -1,9 +1,6 @@
 
 #include "Neural_Network.h"
 
-
-
-
 void Neuron::SetNeuronActivationFunction(ActivationFunctionType function, float variable) {m_activationFunction = function;
                                                                                            m_activationFunctionVariable = variable;}
 void Neuron::AddOutputWeight(float weight) {m_outputWeights.push_back(weight);}

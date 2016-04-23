@@ -1,104 +1,16 @@
-﻿Build started 4/20/2016 9:52:54 PM.
+﻿Build started 4/22/2016 9:45:23 PM.
      1>Project "C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Nerual_Network\Nerual_Network.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt GameBoard.cpp Player.cpp Source.cpp
-         Source.cpp
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): error C2146: syntax error : missing ';' before identifier 'AddPiece'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): warning C4183: 'AddPiece': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(4): error C2370: 'WINNING_LENGTH' : redefinition; different storage class
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(4) : see declaration of 'WINNING_LENGTH'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(5): error C2370: 'BOARD_DIMENSION' : redefinition; different storage class
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(5) : see declaration of 'BOARD_DIMENSION'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8): error C2011: 'E_PieceType' : 'enum' type redefinition
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15): error C2011: 'GameBoard' : 'class' type redefinition
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(11): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(16): error C2079: 'board' uses undefined class 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(16): error C3861: 'GameBoard': identifier not found
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(16): error C2440: 'initializing' : cannot convert from 'GameBoard' to 'int'
-                 Source or target has incomplete type
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(22): error C2228: left of '.ShowBoard' must have class/struct/union
-                 type is 'int'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(29): error C2664: 'Player::MakeMove' : cannot convert parameter 1 from 'int *' to 'GameBoard *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(33): error C2664: 'Player::MakeMove' : cannot convert parameter 1 from 'int *' to 'GameBoard *'
-                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\source.cpp(35): error C2228: left of '.ShowBoard' must have class/struct/union
-                 type is 'int'
-         Player.cpp
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): error C2146: syntax error : missing ';' before identifier 'AddPiece'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): warning C4183: 'AddPiece': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\player.cpp(43): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\player.cpp(60): error C2440: 'return' : cannot convert from 'int' to 'E_PlayerType'
-                 Conversion to enumeration type requires an explicit cast (static_cast, C-style cast or function-style cast)
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\player.cpp(76): error C2556: 'E_PlayerType GameBoard::AddPiece(int,int,E_PieceType)' : overloaded function differs only by return type from 'int GameBoard::AddPiece(int,int,E_PieceType)'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32) : see declaration of 'GameBoard::AddPiece'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\player.cpp(76): error C2371: 'GameBoard::AddPiece' : redefinition; different basic types
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32) : see declaration of 'GameBoard::AddPiece'
-         GameBoard.cpp
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): error C2146: syntax error : missing ';' before identifier 'AddPiece'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(32): warning C4183: 'AddPiece': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(4): error C2370: 'WINNING_LENGTH' : redefinition; different storage class
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(4) : see declaration of 'WINNING_LENGTH'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(5): error C2370: 'BOARD_DIMENSION' : redefinition; different storage class
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(5) : see declaration of 'BOARD_DIMENSION'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8): error C2011: 'E_PieceType' : 'enum' type redefinition
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15): error C2011: 'GameBoard' : 'class' type redefinition
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(4): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(4): error C2059: syntax error : ')'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(5): error C2143: syntax error : missing ';' before '{'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(5): error C2447: '{' : missing function header (old-style formal list?)
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(13): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(15): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(15): error C2027: use of undefined type 'E_PieceType'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(16): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(21): error C3861: 'CheckForOrderWin': identifier not found
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(26): error C3861: 'CheckForChaosWin': identifier not found
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(32): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(32): error C2062: type 'int' unexpected
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(33): error C2143: syntax error : missing ';' before '{'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(33): error C2447: '{' : missing function header (old-style formal list?)
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(52): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(69): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(75): error C2027: use of undefined type 'E_PieceType'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(94): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(100): error C2027: use of undefined type 'E_PieceType'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(115): error C3861: 'FindStartingPoint': identifier not found
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(120): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(126): error C2027: use of undefined type 'E_PieceType'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(143): error C3861: 'FindStartingPoint': identifier not found
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(148): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(154): error C2027: use of undefined type 'E_PieceType'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(180): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(186): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(186): error C2027: use of undefined type 'E_PieceType'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(8) : see declaration of 'E_PieceType'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(196): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(222): error C2027: use of undefined type 'GameBoard'
-                 c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.h(15) : see declaration of 'GameBoard'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(228): error C2039: 'setw' : is not a member of 'std'
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(228): error C2065: 'board' : undeclared identifier
-     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\gameboard.cpp(228): error C3861: 'setw': identifier not found
-         Generating Code...
-     1>Done Building Project "C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Nerual_Network\Nerual_Network.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp
+         Game.cpp
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\game.cpp(271): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.lib" /MACHINE:X86 Debug\Game.obj
+         Debug\Neural_Network.obj
+         Debug\Source.obj
+         Nerual_Network.vcxproj -> C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.exe
+     1>Done Building Project "C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Nerual_Network\Nerual_Network.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:01.16
+Time Elapsed 00:00:01.04

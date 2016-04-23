@@ -1,6 +1,5 @@
-#include "Player.h"
-#include "Neural_Network.h"
-#include "GameBoard.h"
+#include "Game.h"
+#include <windows.h>
 
 
 void main()
@@ -8,7 +7,7 @@ void main()
    
    int cat;
 
-   srand(time(NULL));
+   srand((unsigned int)time(NULL));
 
    Player Player1 = Player(E_PlayerType::CHAOS);
    Player Player2 = Player(E_PlayerType::ORDER);
@@ -33,7 +32,7 @@ void main()
          winningPlayer = Player2.MakeMove(&board);
       }
       board.ShowBoard();
-      _sleep(1000);
+      Sleep(1000);
       // Toggle which player is up next
       currentPlayer = (E_PlayerType)(((int)currentPlayer) * -1);
    }
