@@ -13,22 +13,13 @@ GameBoard::GameBoard()
    }
 }
 
-E_PlayerType GameBoard::AddPiece(int row, int column, E_PieceType piece)
+bool GameBoard::AddPiece(int row, int column, E_PieceType piece)
 {
-   if( board[row][column] == E_PieceType::BLANK)
-      board[row][column] = piece;
-   else
-      throw std::invalid_argument("ERROR in AddPiece(): An occupied square was attempted to be overwritten");
+   if( board[row][column] != E_PieceType::BLANK)
+      return false;
 
-   bool winner = false;
-   winner = CheckForOrderWin(row, column);
-
-   if(winner)
-      return E_PlayerType::ORDER;
-   
-   winner = CheckForChaosWin();
-
-   return E_PlayerType::NONE;
+   board[row][column] = piece;
+   return true;
 }
 
 
@@ -267,28 +258,50 @@ E_PlayerType Player::MakeBestMove(std::vector<float> response, GameBoard* board)
 {
    int maxIndex = 0;
    float maxValue = 0.0;
-   
 
-   for(int i = 0; i < response.size(); i++)
-   {
-      if(abs(response[i]) > maxValue)
-      {
-         maxIndex = i;
-         maxValue = abs(response[i]);
-      }
-   }
-   
-   int boardRow = maxIndex / BOARD_DIMENSION;
-   int boardColumn = maxIndex % BOARD_DIMENSION;
+   int boardColumn;
+   int boardRow;
 
    E_PieceType piece;
-
-   if(response[maxIndex] > 0)
-      piece = E_PieceType::RED;
-   else
-      piece = E_PieceType::BLACK;
+   
+   bool pieceAddedSuccessfully = false;
 
 
-   return board->AddPiece(boardRow, boardColumn, piece);
+   while(!pieceAddedSuccessfully && response.size() > 0)
+   {
+      maxIndex = 0;
+      maxValue = 0;
+      for(int i = 0; i < response.size(); i++)
+         {
+            if(abs(response[i]) > maxValue)
+            {
+               maxIndex = i;
+               maxValue = abs(response[i]);
+            }
+         }
+
+         boardRow = maxIndex / BOARD_DIMENSION;
+         boardColumn = maxIndex % BOARD_DIMENSION;
+
+         
+
+         if(response[maxIndex] > 0)
+            piece = E_PieceType::RED;
+         else
+            piece = E_PieceType::BLACK;
+      pieceAddedSuccessfully = board->AddPiece(boardRow, boardColumn, piece);
+      response[maxIndex] = 0.0;
+   }
+   
+   bool winner = false;
+   winner = board->CheckForOrderWin(boardRow, boardColumn);
+
+   if(winner)
+      return E_PlayerType::ORDER;
+   
+   winner = board->CheckForChaosWin();
+
+
+   return E_PlayerType::NONE;
 }
 

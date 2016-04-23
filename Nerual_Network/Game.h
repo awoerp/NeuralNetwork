@@ -26,8 +26,7 @@ class GameBoard
 private:
    E_PieceType board[BOARD_DIMENSION][BOARD_DIMENSION];
 
-   bool CheckForOrderWin(const int row,const int column);
-   bool CheckForChaosWin();
+
    void FindStartingPoint(int& row, int& column, bool positiveSlope);
 
 
@@ -39,8 +38,11 @@ public:
 
 
    // Returns true if the game is complete
-   E_PlayerType AddPiece(int row, int column, E_PieceType piece);
+   
    E_PieceType GetPiece(int row, int column) {return board[row][column];}
+   bool CheckForOrderWin(const int row,const int column);
+   bool CheckForChaosWin();
+   bool AddPiece(int row, int column, E_PieceType piece);
    void ShowBoard();
 
 };

@@ -36,6 +36,12 @@ void main()
       // Toggle which player is up next
       currentPlayer = (E_PlayerType)(((int)currentPlayer) * -1);
    }
+
+
+   if(winningPlayer == E_PlayerType::CHAOS)
+      std::cout << "CHAOS Wins!!!" << std::endl;
+   else
+      std::cout << "ORDER Wins!!!" << std::endl;
    //net.PrintTest();
 
 
