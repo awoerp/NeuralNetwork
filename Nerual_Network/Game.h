@@ -25,6 +25,7 @@ class GameBoard
 {
 private:
    E_PieceType board[BOARD_DIMENSION][BOARD_DIMENSION];
+   int numberOfPiecesPlayed;
 
 
    void FindStartingPoint(int& row, int& column, bool positiveSlope);

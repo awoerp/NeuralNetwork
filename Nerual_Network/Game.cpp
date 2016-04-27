@@ -4,7 +4,7 @@
 #include "Player.h"
 #include <iomanip>
 
-GameBoard::GameBoard()
+GameBoard::GameBoard() : numberOfPiecesPlayed(0)
 {
    for(int row = 0; row < BOARD_DIMENSION; row++)
    {
@@ -19,6 +19,7 @@ bool GameBoard::AddPiece(int row, int column, E_PieceType piece)
       return false;
 
    board[row][column] = piece;
+   numberOfPiecesPlayed++;
    return true;
 }
 
@@ -166,15 +167,7 @@ bool GameBoard::CheckForOrderWin(const int row,const int column)
 // and false otherwise.
 bool GameBoard::CheckForChaosWin()
 {
-   for(int row = 0; row < BOARD_DIMENSION; row++)
-   {
-      for(int column = 0; column < BOARD_DIMENSION; column++)
-      {
-         if(board[row][column] == E_PieceType::BLANK)
-            return false;
-      }
-   }
-   return true;
+   return numberOfPiecesPlayed == BOARD_DIMENSION * BOARD_DIMENSION;
 }
 
 
@@ -267,7 +260,7 @@ E_PlayerType Player::MakeBestMove(std::vector<float> response, GameBoard* board)
    bool pieceAddedSuccessfully = false;
 
 
-   while(!pieceAddedSuccessfully && response.size() > 0)
+   while(!pieceAddedSuccessfully)
    {
       maxIndex = 0;
       maxValue = 0;
@@ -280,17 +273,20 @@ E_PlayerType Player::MakeBestMove(std::vector<float> response, GameBoard* board)
             }
          }
 
-         boardRow = maxIndex / BOARD_DIMENSION;
-         boardColumn = maxIndex % BOARD_DIMENSION;
+      boardRow = maxIndex / BOARD_DIMENSION;
+      boardColumn = maxIndex % BOARD_DIMENSION;
 
-         
-
-         if(response[maxIndex] > 0)
-            piece = E_PieceType::RED;
-         else
-            piece = E_PieceType::BLACK;
+      if(response[maxIndex] > 0)
+         piece = E_PieceType::RED;
+      else
+         piece = E_PieceType::BLACK;
       pieceAddedSuccessfully = board->AddPiece(boardRow, boardColumn, piece);
       response[maxIndex] = 0.0;
+
+      if(board->CheckForChaosWin())
+      {
+         return E_PlayerType::CHAOS;
+      }
    }
    
    bool winner = false;
@@ -298,10 +294,7 @@ E_PlayerType Player::MakeBestMove(std::vector<float> response, GameBoard* board)
 
    if(winner)
       return E_PlayerType::ORDER;
-   
-   winner = board->CheckForChaosWin();
-
-
+  
    return E_PlayerType::NONE;
 }
 

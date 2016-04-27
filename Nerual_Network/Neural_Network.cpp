@@ -44,6 +44,38 @@ NeuralNetwork::NeuralNetwork()
    m_numInputNeurons = 0;
    m_numHiddenLayers = 0;
    m_numOutputNeurons = 0;
+
+
+   std::vector<int> innerTopology;
+   innerTopology.push_back(30);
+   innerTopology.push_back(20);
+   DefineNetworkTopology(50,innerTopology, 49);
+   CreateNeurons();
+   ConnectNeurons();
+   RandomizeConnectionWeights();
+}
+
+
+NeuralNetwork::NeuralNetwork(NeuralNetwork* n)
+{
+   m_numInputNeurons = n->m_numInputNeurons;
+   m_numHiddenNeurons = n->m_numHiddenNeurons;   
+   m_numOutputNeurons = n->m_numOutputNeurons;
+
+   m_numHiddenLayers = n->m_numHiddenLayers;
+
+   CreateNeurons();
+   ConnectNeurons();
+
+   for(int layer = 0; layer < m_numHiddenLayers; layer++)
+   {
+      for(int row = 0; row < Network[layer].size(); row++)
+      {
+         Neuron* neuronToModify = GetNeuron(layer, row);
+         Neuron* neuronToCopy   = n->GetNeuron(layer, row);
+         neuronToModify->SetOutputWeights(neuronToCopy->GetOutputWeights());
+      }
+   }
 }
 
 void NeuralNetwork::DefineNetworkTopology(int numInputNeurons, std::vector<int> hiddenNodeTopology, int numOutputNeurons)

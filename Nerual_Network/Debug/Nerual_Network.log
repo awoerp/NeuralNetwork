@@ -1,8 +1,24 @@
-﻿Build started 4/22/2016 10:08:32 PM.
+﻿Build started 4/26/2016 9:25:09 PM.
      1>Project "C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Nerual_Network\Nerual_Network.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
-         Source.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Neural_Network.cpp
+         Neural_Network.cpp
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(72): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(85): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(142): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(150): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(152): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(154): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(170): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(180): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(182): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(184): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(189): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(203): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(214): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(216): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(228): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\andy\desktop\programs\nerual_network\neuralnetwork\nerual_network\neural_network.cpp(243): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Andy\Desktop\Programs\Nerual_Network\NeuralNetwork\Debug\Nerual_Network.lib" /MACHINE:X86 Debug\Game.obj
          Debug\Neural_Network.obj
@@ -12,4 +28,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:01.00
